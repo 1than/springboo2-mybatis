@@ -78,9 +78,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <resources>
-            <!-- mapper.xml文件在java目录下 解决编译不生成mapper.xml问题 -->
-        </resources>
     </build>
 
 
