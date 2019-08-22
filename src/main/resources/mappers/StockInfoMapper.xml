@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboo2mybatis.dao.StockInfoMapper">
+  <resultMap id="BaseResultMap" type="com.example.springboo2mybatis.beans.StockInfo">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="stock_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stock_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stock_date" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="qp_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="open_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="top_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="low_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="receive_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deal_count" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="deal_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="up_down_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="up_down_rate" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="average_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="hand_rate" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="a_stock_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="b_stock_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="total_price" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="a_stock_count" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="b_stock_count" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="total_stock_count" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sy_rate" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sj_rate" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sx_rate" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sxl_rate" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, stock_code, stock_name, stock_date, qp_price, open_price, top_price, low_price, 
+    receive_price, deal_count, deal_price, up_down_price, up_down_rate, average_price, 
+    hand_rate, a_stock_price, b_stock_price, total_price, a_stock_count, b_stock_count, 
+    total_stock_count, sy_rate, sj_rate, sx_rate, sxl_rate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_stockinfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_stockinfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.springboo2mybatis.beans.StockInfo">
+    insert into t_stockinfo (id, stock_code, stock_name, 
+      stock_date, qp_price, open_price, 
+      top_price, low_price, receive_price, 
+      deal_count, deal_price, up_down_price, 
+      up_down_rate, average_price, hand_rate, 
+      a_stock_price, b_stock_price, total_price, 
+      a_stock_count, b_stock_count, total_stock_count, 
+      sy_rate, sj_rate, sx_rate, 
+      sxl_rate)
+    values (#{id,jdbcType=BIGINT}, #{stockCode,jdbcType=VARCHAR}, #{stockName,jdbcType=VARCHAR}, 
+      #{stockDate,jdbcType=VARCHAR}, #{qpPrice,jdbcType=VARCHAR}, #{openPrice,jdbcType=VARCHAR}, 
+      #{topPrice,jdbcType=VARCHAR}, #{lowPrice,jdbcType=VARCHAR}, #{receivePrice,jdbcType=VARCHAR}, 
+      #{dealCount,jdbcType=VARCHAR}, #{dealPrice,jdbcType=VARCHAR}, #{upDownPrice,jdbcType=VARCHAR}, 
+      #{upDownRate,jdbcType=VARCHAR}, #{averagePrice,jdbcType=VARCHAR}, #{handRate,jdbcType=VARCHAR}, 
+      #{aStockPrice,jdbcType=VARCHAR}, #{bStockPrice,jdbcType=VARCHAR}, #{totalPrice,jdbcType=VARCHAR}, 
+      #{aStockCount,jdbcType=VARCHAR}, #{bStockCount,jdbcType=VARCHAR}, #{totalStockCount,jdbcType=VARCHAR}, 
+      #{syRate,jdbcType=VARCHAR}, #{sjRate,jdbcType=VARCHAR}, #{sxRate,jdbcType=VARCHAR}, 
+      #{sxlRate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springboo2mybatis.beans.StockInfo">
+    insert into t_stockinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="stockCode != null">
+        stock_code,
+      </if>
+      <if test="stockName != null">
+        stock_name,
+      </if>
+      <if test="stockDate != null">
+        stock_date,
+      </if>
+      <if test="qpPrice != null">
+        qp_price,
+      </if>
+      <if test="openPrice != null">
+        open_price,
+      </if>
+      <if test="topPrice != null">
+        top_price,
+      </if>
+      <if test="lowPrice != null">
+        low_price,
+      </if>
+      <if test="receivePrice != null">
+        receive_price,
+      </if>
+      <if test="dealCount != null">
+        deal_count,
+      </if>
+      <if test="dealPrice != null">
+        deal_price,
+      </if>
+      <if test="upDownPrice != null">
+        up_down_price,
+      </if>
+      <if test="upDownRate != null">
+        up_down_rate,
+      </if>
+      <if test="averagePrice != null">
+        average_price,
+      </if>
+      <if test="handRate != null">
+        hand_rate,
+      </if>
+      <if test="aStockPrice != null">
+        a_stock_price,
+      </if>
+      <if test="bStockPrice != null">
+        b_stock_price,
+      </if>
+      <if test="totalPrice != null">
+        total_price,
+      </if>
+      <if test="aStockCount != null">
+        a_stock_count,
+      </if>
+      <if test="bStockCount != null">
+        b_stock_count,
+      </if>
+      <if test="totalStockCount != null">
+        total_stock_count,
+      </if>
+      <if test="syRate != null">
+        sy_rate,
+      </if>
+      <if test="sjRate != null">
+        sj_rate,
+      </if>
+      <if test="sxRate != null">
+        sx_rate,
+      </if>
+      <if test="sxlRate != null">
+        sxl_rate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="stockCode != null">
+        #{stockCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stockName != null">
+        #{stockName,jdbcType=VARCHAR},
+      </if>
+      <if test="stockDate != null">
+        #{stockDate,jdbcType=VARCHAR},
+      </if>
+      <if test="qpPrice != null">
+        #{qpPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="openPrice != null">
+        #{openPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="topPrice != null">
+        #{topPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="lowPrice != null">
+        #{lowPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="receivePrice != null">
+        #{receivePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="dealCount != null">
+        #{dealCount,jdbcType=VARCHAR},
+      </if>
+      <if test="dealPrice != null">
+        #{dealPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="upDownPrice != null">
+        #{upDownPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="upDownRate != null">
+        #{upDownRate,jdbcType=VARCHAR},
+      </if>
+      <if test="averagePrice != null">
+        #{averagePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="handRate != null">
+        #{handRate,jdbcType=VARCHAR},
+      </if>
+      <if test="aStockPrice != null">
+        #{aStockPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="bStockPrice != null">
+        #{bStockPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="aStockCount != null">
+        #{aStockCount,jdbcType=VARCHAR},
+      </if>
+      <if test="bStockCount != null">
+        #{bStockCount,jdbcType=VARCHAR},
+      </if>
+      <if test="totalStockCount != null">
+        #{totalStockCount,jdbcType=VARCHAR},
+      </if>
+      <if test="syRate != null">
+        #{syRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sjRate != null">
+        #{sjRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sxRate != null">
+        #{sxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sxlRate != null">
+        #{sxlRate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springboo2mybatis.beans.StockInfo">
+    update t_stockinfo
+    <set>
+      <if test="stockCode != null">
+        stock_code = #{stockCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stockName != null">
+        stock_name = #{stockName,jdbcType=VARCHAR},
+      </if>
+      <if test="stockDate != null">
+        stock_date = #{stockDate,jdbcType=VARCHAR},
+      </if>
+      <if test="qpPrice != null">
+        qp_price = #{qpPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="openPrice != null">
+        open_price = #{openPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="topPrice != null">
+        top_price = #{topPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="lowPrice != null">
+        low_price = #{lowPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="receivePrice != null">
+        receive_price = #{receivePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="dealCount != null">
+        deal_count = #{dealCount,jdbcType=VARCHAR},
+      </if>
+      <if test="dealPrice != null">
+        deal_price = #{dealPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="upDownPrice != null">
+        up_down_price = #{upDownPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="upDownRate != null">
+        up_down_rate = #{upDownRate,jdbcType=VARCHAR},
+      </if>
+      <if test="averagePrice != null">
+        average_price = #{averagePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="handRate != null">
+        hand_rate = #{handRate,jdbcType=VARCHAR},
+      </if>
+      <if test="aStockPrice != null">
+        a_stock_price = #{aStockPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="bStockPrice != null">
+        b_stock_price = #{bStockPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null">
+        total_price = #{totalPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="aStockCount != null">
+        a_stock_count = #{aStockCount,jdbcType=VARCHAR},
+      </if>
+      <if test="bStockCount != null">
+        b_stock_count = #{bStockCount,jdbcType=VARCHAR},
+      </if>
+      <if test="totalStockCount != null">
+        total_stock_count = #{totalStockCount,jdbcType=VARCHAR},
+      </if>
+      <if test="syRate != null">
+        sy_rate = #{syRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sjRate != null">
+        sj_rate = #{sjRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sxRate != null">
+        sx_rate = #{sxRate,jdbcType=VARCHAR},
+      </if>
+      <if test="sxlRate != null">
+        sxl_rate = #{sxlRate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springboo2mybatis.beans.StockInfo">
+    update t_stockinfo
+    set stock_code = #{stockCode,jdbcType=VARCHAR},
+      stock_name = #{stockName,jdbcType=VARCHAR},
+      stock_date = #{stockDate,jdbcType=VARCHAR},
+      qp_price = #{qpPrice,jdbcType=VARCHAR},
+      open_price = #{openPrice,jdbcType=VARCHAR},
+      top_price = #{topPrice,jdbcType=VARCHAR},
+      low_price = #{lowPrice,jdbcType=VARCHAR},
+      receive_price = #{receivePrice,jdbcType=VARCHAR},
+      deal_count = #{dealCount,jdbcType=VARCHAR},
+      deal_price = #{dealPrice,jdbcType=VARCHAR},
+      up_down_price = #{upDownPrice,jdbcType=VARCHAR},
+      up_down_rate = #{upDownRate,jdbcType=VARCHAR},
+      average_price = #{averagePrice,jdbcType=VARCHAR},
+      hand_rate = #{handRate,jdbcType=VARCHAR},
+      a_stock_price = #{aStockPrice,jdbcType=VARCHAR},
+      b_stock_price = #{bStockPrice,jdbcType=VARCHAR},
+      total_price = #{totalPrice,jdbcType=VARCHAR},
+      a_stock_count = #{aStockCount,jdbcType=VARCHAR},
+      b_stock_count = #{bStockCount,jdbcType=VARCHAR},
+      total_stock_count = #{totalStockCount,jdbcType=VARCHAR},
+      sy_rate = #{syRate,jdbcType=VARCHAR},
+      sj_rate = #{sjRate,jdbcType=VARCHAR},
+      sx_rate = #{sxRate,jdbcType=VARCHAR},
+      sxl_rate = #{sxlRate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -125,7 +125,7 @@
             <!-- 本例采用DruidDataSource连接-->
             <dataSource class="com.alibaba.druid.pool.DruidDataSource">
                 <!-- 数据库连接驱动类 -->
-                <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
+                <driverClassName>com.mysql.jdbc.Driver</driverClassName>
                 <!-- 数据库连接地址 -->
                 <url>jdbc:mysql://192.168.142.133:3306/bigdata?characterEncoding=UTF-8</url>
                 <!-- 数据库用户 -->
@@ -137,7 +137,7 @@
     </appender>
 
     <!-- Logger 根目录 -->
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="DEBUG" />
         <appender-ref ref="ERROR" />
