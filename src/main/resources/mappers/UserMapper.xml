@@ -72,14 +72,14 @@
 
     <update id="updateByPrimaryKey" parameterType="com.example.springboo2mybatis.beans.User">
         update user
-        set    name = #{name,jdbcType=VARCHAR},
-               age  = #{age,jdbcType=INTEGER}
-        where  id   = #{id,jdbcType=INTEGER}
+        set name = #{name,jdbcType=VARCHAR},
+        age = #{age,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
     </update>
 
     <select id="queryAllUser" resultMap="BaseResultMap">
         select
-          <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         from user
     </select>
 </mapper>
