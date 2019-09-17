@@ -37,7 +37,7 @@
             targetProject     指定在该项目下所在的路径
             实体类生成路径(*)
         -->
-        <javaModelGenerator targetPackage="com.example.springboo2mybatis.beans" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="com.example.springboot2mybatis.beans" targetProject="./src/main/java">
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
             <!-- 是否对model添加 构造函数 -->
@@ -60,7 +60,7 @@
         -->
 
         <!-- targetPackage：dao层mapper接口生成的位置(*) -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.springboo2mybatis.dao"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.springboot2mybatis.dao"
                              targetProject="./src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false"/>
