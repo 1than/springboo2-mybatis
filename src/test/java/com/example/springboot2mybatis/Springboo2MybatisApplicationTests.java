@@ -1,6 +1,9 @@
 package com.example.springboot2mybatis;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboot2mybatis.dao.StockinfoDAO;
 import com.example.springboot2mybatis.entity.Stockinfo;
 import com.example.springboot2mybatis.service.StockinfoService;
@@ -115,6 +118,27 @@ public class Springboo2MybatisApplicationTests {
         List<Stockinfo> lists = (List<Stockinfo>) stockinfoService.listByMap(paramsMap);
 
         lists.forEach(System.out::println);
+    }
+
+    /**
+     *
+     * 分页查询
+     *
+     */
+    @Test
+    public void test7 () {
+        QueryWrapper<Stockinfo> condition = new QueryWrapper<>();
+        //condition.eq("stock_name", "浦发银行");
+
+        Page<Stockinfo> pageObj = new Page<>(2,10);
+
+        IPage<Stockinfo> listPage = stockinfoDAO.selectPage(pageObj, condition);
+
+        System.out.println("size = " + listPage.getSize());
+        System.out.println("page = " + listPage.getPages());
+        System.out.println("total = " + listPage.getTotal());
+        System.out.println("获取记录...");
+        System.out.println(listPage.getRecords());
     }
 
 }
