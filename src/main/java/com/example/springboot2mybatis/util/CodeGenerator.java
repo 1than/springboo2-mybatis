@@ -153,7 +153,6 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        //NamingStrategy.removePrefix("T");//根据实际情况指定参数
         //strategy.setSuperEntityClass("beans");
         strategy.setEntityLombokModel(true);
         //strategy.setRestControllerStyle(true);
