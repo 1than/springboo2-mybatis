@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot2mybatis.dao.StockinfoDAO">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.springboot2mybatis.entity.Stockinfo">
+        <id column="id" property="id" />
+        <result column="stock_code" property="stockCode" />
+        <result column="stock_name" property="stockName" />
+        <result column="stock_date" property="stockDate" />
+        <result column="qp_price" property="qpPrice" />
+        <result column="open_price" property="openPrice" />
+        <result column="top_price" property="topPrice" />
+        <result column="low_price" property="lowPrice" />
+        <result column="receive_price" property="receivePrice" />
+        <result column="deal_count" property="dealCount" />
+        <result column="deal_price" property="dealPrice" />
+        <result column="up_down_price" property="upDownPrice" />
+        <result column="up_down_rate" property="upDownRate" />
+        <result column="average_price" property="averagePrice" />
+        <result column="hand_rate" property="handRate" />
+        <result column="a_stock_price" property="aStockPrice" />
+        <result column="b_stock_price" property="bStockPrice" />
+        <result column="total_price" property="totalPrice" />
+        <result column="a_stock_count" property="aStockCount" />
+        <result column="b_stock_count" property="bStockCount" />
+        <result column="total_stock_count" property="totalStockCount" />
+        <result column="sy_rate" property="syRate" />
+        <result column="sj_rate" property="sjRate" />
+        <result column="sx_rate" property="sxRate" />
+        <result column="sxl_rate" property="sxlRate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, stock_code, stock_name, stock_date, qp_price, open_price, top_price, low_price, receive_price, deal_count, deal_price, up_down_price, up_down_rate, average_price, hand_rate, a_stock_price, b_stock_price, total_price, a_stock_count, b_stock_count, total_stock_count, sy_rate, sj_rate, sx_rate, sxl_rate
+    </sql>
+
+</mapper>
